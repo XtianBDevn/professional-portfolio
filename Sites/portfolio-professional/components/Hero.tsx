@@ -3,11 +3,13 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Box, Typography, Button, Container } from '@mui/material';
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import Avatar from './Avatar';
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,6 +29,15 @@ export default function Hero() {
           duration: 0.8,
         },
         '-=0.5'
+      )
+      .from(
+        contactRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+        },
+        '-=0.4'
       )
       .from(
         ctaRef.current,
@@ -80,10 +91,65 @@ export default function Hero() {
             variant="h5"
             component="p"
             color="text.secondary"
-            sx={{ mb: 6, fontSize: { xs: '1.25rem', md: '1.5rem' } }}
+            sx={{ mb: 3, fontSize: { xs: '1.25rem', md: '1.5rem' } }}
           >
             Full Stack Engineer | Creating Exceptional Digital Experiences
           </Typography>
+
+          <Box
+            ref={contactRef}
+            sx={{
+              display: 'flex',
+              gap: 3,
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              mb: 6,
+            }}
+          >
+            <Box
+              component="a"
+              href="tel:8049724005"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+                color: 'text.primary',
+                textDecoration: 'none',
+                transition: 'all 0.3s',
+                '&:hover': {
+                  color: 'primary.main',
+                  transform: 'scale(1.05)',
+                },
+              }}
+            >
+              <FaPhone style={{ color: '#00d9ff' }} />
+              <Typography variant="body1">804.972.4005</Typography>
+            </Box>
+
+            <Typography variant="body1" color="text.secondary">|</Typography>
+
+            <Box
+              component="a"
+              href="mailto:christian.bryantrva@outlook.com"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+                color: 'text.primary',
+                textDecoration: 'none',
+                transition: 'all 0.3s',
+                '&:hover': {
+                  color: 'primary.main',
+                  transform: 'scale(1.05)',
+                },
+              }}
+            >
+              <FaEnvelope style={{ color: '#00d9ff' }} />
+              <Typography variant="body1">christian.bryantrva@outlook.com</Typography>
+            </Box>
+          </Box>
+
           <Box
             ref={ctaRef}
             sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}

@@ -15,7 +15,7 @@ import {
 const socialLinks = [
   { icon: FaGithub, label: 'GitHub', url: 'https://github.com/XtianBDevn', color: '#00d9ff' },
   { icon: FaDiscord, label: 'Discord', url: 'https://discord.com/users/xtianbdevn', color: '#5865F2' },
-  { icon: FaLinkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/christianbryant-rva/', color: '#0077B5' },
+  { icon: FaLinkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/christian-bryant-rva//', color: '#0077B5' },
   { icon: FaFacebook, label: 'Facebook', url: 'https://www.facebook.com/christian.bryant.323305/', color: '#1877F2' },
   { icon: FaInstagram, label: 'Instagram', url: 'https://www.instagram.com/christianbryantmusic/', color: '#E4405F' },
 ];
