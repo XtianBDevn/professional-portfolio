@@ -74,7 +74,7 @@ export default function Avatar() {
     }
   }, []);
 
-  const orbitRadius = 150; // Radius of the orbit
+  const orbitRadius = { xs: 120, md: 160 }; // Radius of the orbit (responsive)
 
   return (
     <Box
@@ -82,7 +82,7 @@ export default function Avatar() {
         position: 'relative',
         width: { xs: 192, md: 256 },
         height: { xs: 192, md: 256 },
-        margin: '0 auto 6rem',
+        margin: '0 auto 8rem',
       }}
     >
       <Box
@@ -142,17 +142,16 @@ export default function Avatar() {
           position: 'absolute',
           top: '50%',
           left: '50%',
-          width: orbitRadius * 2,
-          height: orbitRadius * 2,
+          width: { xs: orbitRadius.xs * 2, md: orbitRadius.md * 2 },
+          height: { xs: orbitRadius.xs * 2, md: orbitRadius.md * 2 },
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
         }}
       >
         {socialLinks.map((social, index) => {
-          const angle = (360 / socialLinks.length) * index;
+          // Start at top (-90 degrees) and distribute evenly
+          const angle = (360 / socialLinks.length) * index - 90;
           const angleRad = (angle * Math.PI) / 180;
-          const x = Math.cos(angleRad) * orbitRadius;
-          const y = Math.sin(angleRad) * orbitRadius + 30; // Offset below equator
 
           return (
             <Tooltip key={social.label} title={social.label} arrow>
@@ -166,7 +165,10 @@ export default function Avatar() {
                   position: 'absolute',
                   top: '50%',
                   left: '50%',
-                  transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${-angle}deg)`,
+                  transform: {
+                    xs: `translate(-50%, -50%) translate(${Math.cos(angleRad) * orbitRadius.xs}px, ${Math.sin(angleRad) * orbitRadius.xs}px) rotate(${-angle}deg)`,
+                    md: `translate(-50%, -50%) translate(${Math.cos(angleRad) * orbitRadius.md}px, ${Math.sin(angleRad) * orbitRadius.md}px) rotate(${-angle}deg)`,
+                  },
                   pointerEvents: 'auto',
                   width: 48,
                   height: 48,
@@ -176,7 +178,10 @@ export default function Avatar() {
                   transition: 'all 0.3s ease',
                   '&:hover': {
                     background: `${social.color}40`,
-                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${-angle}deg) scale(1.2)`,
+                    transform: {
+                      xs: `translate(-50%, -50%) translate(${Math.cos(angleRad) * orbitRadius.xs}px, ${Math.sin(angleRad) * orbitRadius.xs}px) rotate(${-angle}deg) scale(1.2)`,
+                      md: `translate(-50%, -50%) translate(${Math.cos(angleRad) * orbitRadius.md}px, ${Math.sin(angleRad) * orbitRadius.md}px) rotate(${-angle}deg) scale(1.2)`,
+                    },
                     boxShadow: `0 0 20px ${social.color}`,
                   },
                 }}
