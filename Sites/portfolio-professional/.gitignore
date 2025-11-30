@@ -31,3 +31,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# deployment files
+*.tar.gz
+*.zip
+portfolio-deploy.tar.gz
+Archive.zip
+ftp-upload/
+logs/

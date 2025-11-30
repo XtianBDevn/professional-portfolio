@@ -1,0 +1,67 @@
+=====================================
+BLUEHOST FTP CONNECTION SETTINGS
+=====================================
+
+FOR FILEZILLA / CYBERDUCK / FTP CLIENT:
+--------------------------------------
+Protocol:     SFTP (SSH File Transfer Protocol)
+Host:         weq.vvw.mybluehost.me
+              OR
+              ftp.christianbryantrva.com
+Port:         22 (for SFTP)
+              OR
+              21 (for regular FTP - less secure)
+Username:     xtian
+Password:     [Your cPanel password]
+
+ALTERNATIVE FTP SETTINGS:
+------------------------
+If SFTP doesn't work, try regular FTP:
+Protocol:     FTP
+Host:         ftp.christianbryantrva.com
+Port:         21
+Username:     xtian@christianbryantrva.com
+Password:     [Your cPanel password]
+
+SERVER DIRECTORY:
+-----------------
+Upload files to one of these locations:
+  /public_html/christianbryantrva.com/
+  OR
+  /home/xtian/public_html/christianbryantrva.com/
+
+FILEZILLA QUICK SETUP:
+----------------------
+1. Open FileZilla
+2. File → Site Manager → New Site
+3. Enter settings above
+4. Click "Connect"
+5. Navigate to upload directory
+6. Drag & drop files from local ./ftp-upload/ folder
+
+MACOS FINDER QUICK CONNECT:
+---------------------------
+1. Press Cmd + K in Finder
+2. Enter: sftp://xtian@weq.vvw.mybluehost.me
+3. Click "Connect"
+4. Enter password
+5. Drag & drop files
+
+CPANEL ACCESS:
+--------------
+URL:      https://weq.vvw.mybluehost.me:2083
+Username: xtian
+Password: [Your cPanel password]
+
+Inside cPanel:
+- File Manager: Upload and manage files
+- Terminal: Run npm commands
+- Node.js App Manager: Configure and start app
+
+=====================================
+IMPORTANT NOTES:
+=====================================
+- SFTP (Port 22) is more secure than FTP (Port 21)
+- Uploading node_modules takes 30-60 minutes
+- Consider using cPanel Terminal to run 'npm install' on server
+- Make sure to upload to the correct domain directory
